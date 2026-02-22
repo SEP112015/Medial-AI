@@ -3,18 +3,18 @@ from sqlalchemy.orm import Session
 import json
 
 def analyze_case(payload: dict, db: Session) -> dict:
-
     result = {
-        "diagnostic_scenarios": [
-            {"name": "Escenario A", "probability": 0.55},
-            {"name": "Escenario B", "probability": 0.25}
-        ],
-        "risk_level": "moderate",
-        "recommendations": [
-            "Solicitar hemograma",
-            "Monitoreo de signos vitales"
-        ]
-    }
+    "diagnostic_scenarios": [
+        {"name": "Escenario A", "probability": 0.55},
+        {"name": "Escenario B", "probability": 0.25}
+    ],
+    "risk_level": "moderate",
+    "recommendations": [
+        "Solicitar hemograma",
+        "Monitoreo de signos vitales"
+    ],
+    "model_version": "v1.0"
+}
 
     # 🔥 Guardar decisión en BD
     decision = Decision(
