@@ -13,6 +13,20 @@ export default function Dashboard({
         <div className="cardHeader">
           <div>
             <h2>Dashboard</h2>
+            <div className="kpiRow">
+  <div className="kpi">
+    <strong>Módulos</strong>
+    <span>3</span>
+  </div>
+  <div className="kpi">
+    <strong>Persistencia</strong>
+    <span>Activa</span>
+  </div>
+  <div className="kpi">
+    <strong>Modelo IA</strong>
+    <span>v1.0</span>
+  </div>
+</div>
           </div>
           <span className="badge">Sesión activa</span>
         </div>
