@@ -1,0 +1,9 @@
+from fastapi import APIRouter
+from app.api.routes.health import router as health_router
+from app.api.routes.patients import router as patients_router
+from app.api.routes.analysis import router as analysis_router
+
+api_router = APIRouter()
+api_router.include_router(health_router, tags=["health"])
+api_router.include_router(patients_router, prefix="/patients", tags=["patients"])
+api_router.include_router(analysis_router, prefix="/analysis", tags=["analysis"])
