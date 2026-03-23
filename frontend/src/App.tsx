@@ -4,10 +4,9 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Patients from "./pages/Patients";
 import Decisions from "./pages/Decisions";
+import NewAnalysis from "./pages/NewAnalysis";
 
-
-type View = "dashboard" | "patients" | "decisions";
-
+type View = "dashboard" | "patients" | "decisions" | "analysis";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,24 +22,25 @@ export default function App() {
 
   return (
     <Layout>
-      {view === "dashboard" ? (
+      {view === "dashboard" && (
         <Dashboard
           onLogout={() => setIsLoggedIn(false)}
           onOpenPatients={() => setView("patients")}
           onOpenDecisions={() => setView("decisions")}
-
+          onOpenAnalysis={() => setView("analysis")}
         />
-
-        
-      ) : (
-        <Patients onBack={() => setView("dashboard")} />
-        
       )}
-        {view === "decisions" && (
-          <Decisions onBack={() => setView("dashboard")} />
-        )}
 
-      
+      {view === "patients" && <Patients onBack={() => setView("dashboard")} />}
+
+      {view === "decisions" && <Decisions onBack={() => setView("dashboard")} />}
+
+      {view === "analysis" && (
+        <NewAnalysis
+          onBack={() => setView("dashboard")}
+          onGoHistory={() => setView("decisions")}
+        />
+      )}
     </Layout>
   );
 }
